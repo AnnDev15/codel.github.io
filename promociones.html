@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Promociones CODEL | Ofertas especiales para tu hogar</title>
+  <meta name="description" content="Descubre las promociones especiales de CODEL en electrodomésticos, tecnología y productos para tu hogar. Consulta nuestras ofertas y cotiza por WhatsApp.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/isotipo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* =====================================
+       CODEL - PROMOCIONES
+       ===================================== */
+
+    .codel-promotions-layout {
+      background: #f5f7fc;
+      padding: 80px 24px 100px;
+      font-family: "Manrope", sans-serif;
+    }
+
+    .codel-promotions-layout *,
+    .codel-promotions-layout *::before,
+    .codel-promotions-layout *::after {
+      box-sizing: border-box;
+    }
+
+    .codel-promotions-layout__container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: clamp(30px, 5vw, 80px);
+      align-items: center;
+    }
+
+    /* GALERÍA DE IMÁGENES */
+
+    .codel-promotions-layout__gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .codel-promotions-layout__card {
+      position: relative;
+      margin: 0;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(5, 35, 98, 0.09);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .codel-promotions-layout__card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 45px rgba(5, 35, 98, 0.16);
+    }
+
+    .codel-promotions-layout__card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #eef2f9;
+    }
+
+    /* TERCERA IMAGEN */
+    .codel-promotions-layout__card:nth-child(3) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 9px);
+      width: 100%;
+      justify-self: center;
+    }
+
+    /* TEXTO A LA DERECHA */
+
+    .codel-promotions-layout__content {
+      text-align: left;
+      max-width: 540px;
+    }
+
+    .codel-promotions-layout__eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #078ac8;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .codel-promotions-layout__title {
+      margin: 0 0 24px;
+      color: #092f87;
+      font-size: clamp(32px, 3.7vw, 52px);
+      font-weight: 800;
+      line-height: 1.14;
+      letter-spacing: -1.5px;
+    }
+
+    .codel-promotions-layout__title span {
+      display: block;
+      color: #06349c;
+    }
+
+    .codel-promotions-layout__description {
+      margin: 0 0 30px;
+      color: #586780;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.9;
+    }
+
+    .codel-promotions-layout__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 52px;
+      padding: 15px 26px;
+      border-radius: 10px;
+      background: #06349c;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(6, 52, 156, 0.18);
+      transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .codel-promotions-layout__button:hover {
+      background: #002575;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(6, 52, 156, 0.25);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .codel-promotions-layout {
+        padding: 60px 20px 80px;
+      }
+
+      .codel-promotions-layout__container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .codel-promotions-layout__content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        order: -1;
+      }
+
+      .codel-promotions-layout__gallery {
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .codel-promotions-layout {
+        padding: 45px 15px 65px;
+      }
+
+      .codel-promotions-layout__gallery {
+        gap: 10px;
+      }
+
+      .codel-promotions-layout__card {
+        padding: 6px;
+        border-radius: 12px;
+      }
+
+      .codel-promotions-layout__card img {
+        border-radius: 8px;
+      }
+
+      .codel-promotions-layout__card:nth-child(3) {
+        max-width: calc(50% - 5px);
+      }
+
+      .codel-promotions-layout__title {
+        font-size: 32px;
+        letter-spacing: -0.8px;
+      }
+
+      .codel-promotions-layout__description {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .codel-promotions-layout__card,
+      .codel-promotions-layout__button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <div id="global-header"></div>
+
+  <main>
+
+    <!-- BANNER ORIGINAL -->
+    <section class="promotions-hero">
+      <div class="promotions-hero__content">
+        <h1 class="promotions-hero__title">
+          Promociones
+        </h1>
+      </div>
+    </section>
+
+    <!-- PROMOCIONES: IMÁGENES Y TEXTO -->
+    <section class="codel-promotions-layout">
+      <div class="codel-promotions-layout__container">
+
+        <!-- IMÁGENES EN PARES -->
+        <div class="codel-promotions-layout__gallery">
+
+          <figure class="codel-promotions-layout__card">
+            <img
+              src="assets/promoción-cocina.jpg"
+              alt="Promoción de cocina CODEL"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+
+          <figure class="codel-promotions-layout__card">
+            <img
+              src="assets/promocion-hogar.jpg"
+              alt="Promoción de productos para el hogar CODEL"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+
+          <figure class="codel-promotions-layout__card">
+            <img
+              src="assets/promocion-audio.jpg"
+              alt="Promoción de equipos de audio CODEL"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+
+        </div>
+
+        <!-- TEXTO A LA DERECHA -->
+        <div class="codel-promotions-layout__content">
+
+          <span class="codel-promotions-layout__eyebrow">
+            Ofertas para tu hogar
+          </span>
+
+          <h2 class="codel-promotions-layout__title">
+            Aprovecha nuestras
+            <span>promociones especiales</span>
+          </h2>
+
+          <p class="codel-promotions-layout__description">
+            Encuentra productos seleccionados con precios y
+            beneficios especiales por tiempo limitado.
+            Descubre nuevas oportunidades para equipar tu hogar
+            con electrodomésticos, tecnología y muebles de
+            marcas reconocidas.
+          </p>
+
+          <a
+            href="https://wa.me/50578728585?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20promociones%20de%20CODEL."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="codel-promotions-layout__button"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            Consultar promociones
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER GLOBAL -->
+  <div id="global-footer"></div>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a
+    class="codel-whatsapp-float"
+    href="https://wa.me/50578728585?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20CODEL"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escribir a CODEL por WhatsApp"
+    title="Escríbenos por WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="assets/js/codel-animations.js" defer></script>
+  <script src="assets/js/shared-layout.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CODEL - Todo para tu hogar en un solo lugar.">
+  <title>CODEL | Todo para tu hogar</title>
+
+  <!-- Tipografía aproximada. Puede sustituirse por la utilizada en el sitio original. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+<link
+  rel="icon"
+  type="assets\isotipo.svg"
+  href="assets\isotipo.svg"
+>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #catalogo-digital-codel {
+      --codel-blue: #06349c;
+      --codel-dark: #071d45;
+      --codel-green: #17c95a;
+
+      padding: 75px 20px;
+      background: #f5f7fc;
+      color: var(--codel-dark);
+      text-align: center;
+    }
+
+    #catalogo-digital-codel * {
+      box-sizing: border-box;
+    }
+
+    #catalogo-digital-codel .catalog-container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    #catalogo-digital-codel .catalog-eyebrow {
+      display: inline-block;
+      color: var(--codel-blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    #catalogo-digital-codel h1 {
+      margin: 0 0 16px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      font-weight: 800;
+      color: var(--codel-dark);
+    }
+
+    #catalogo-digital-codel h1 span {
+      color: var(--codel-blue);
+    }
+
+    #catalogo-digital-codel .catalog-description {
+      max-width: 680px;
+      margin: 0 auto 38px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #5c6980;
+    }
+
+    #catalogo-digital-codel .catalog-frame {
+      max-width: 980px;
+      margin: auto;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #e2e8f3;
+      border-radius: 22px;
+      box-shadow: 0 18px 55px rgba(7, 29, 69, .10);
+    }
+
+    #catalogo-digital-codel .catalog-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    #catalogo-digital-codel .catalog-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--codel-blue);
+    }
+
+    #catalogo-digital-codel .catalog-brand-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      background: #eaf1ff;
+      border-radius: 11px;
+      font-size: 20px;
+    }
+
+    #catalogo-digital-codel .catalog-counter {
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    #catalogo-digital-codel .catalog-viewer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 490px;
+      padding: 24px 55px;
+      background:
+        radial-gradient(circle at top, #eaf2ff, transparent 65%),
+        #edf1f8;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    #catalogo-digital-codel .catalog-page {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      border-radius: 5px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .20);
+      background: white;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    #catalogo-digital-codel .catalog-page.changing {
+      opacity: .3;
+      transform: scale(.97);
+    }
+
+    #catalogo-digital-codel .catalog-arrow {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 43px;
+      height: 43px;
+      border: 0;
+      border-radius: 50%;
+      background: white;
+      color: var(--codel-blue);
+      font-size: 25px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, .12);
+      transition: .2s ease;
+    }
+
+    #catalogo-digital-codel .catalog-arrow:hover {
+      background: var(--codel-blue);
+      color: white;
+    }
+
+    #catalogo-digital-codel .catalog-arrow:disabled {
+      opacity: .3;
+      cursor: not-allowed;
+    }
+
+    #catalogo-digital-codel .catalog-prev {
+      left: 12px;
+    }
+
+    #catalogo-digital-codel .catalog-next {
+      right: 12px;
+    }
+
+    #catalogo-digital-codel .catalog-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    #catalogo-digital-codel .catalog-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 12px 20px;
+      border-radius: 9px;
+      border: 1px solid var(--codel-blue);
+      background: white;
+      color: var(--codel-blue);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    #catalogo-digital-codel .catalog-btn:hover {
+      background: #edf3ff;
+      transform: translateY(-2px);
+    }
+
+    #catalogo-digital-codel .catalog-btn.primary {
+      background: var(--codel-blue);
+      color: white;
+    }
+
+    #catalogo-digital-codel .catalog-btn.primary:hover {
+      background: #00267b;
+    }
+
+    #catalogo-digital-codel .catalog-btn.whatsapp {
+      background: var(--codel-green);
+      border-color: var(--codel-green);
+      color: white;
+    }
+
+    #catalogo-digital-codel .catalog-btn.whatsapp:hover {
+      background: #0fa947;
+    }
+
+    #catalogo-digital-codel .catalog-note {
+      margin: 18px 0 0;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    #catalogo-digital-codel .catalog-loading {
+      color: #50617a;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    #catalogo-digital-codel .catalog-viewer:fullscreen {
+      background: #e9eef8;
+      padding: 35px 65px;
+    }
+
+    #catalogo-digital-codel .catalog-viewer:fullscreen .catalog-page {
+      max-height: 90vh;
+    }
+
+    @media (max-width: 600px) {
+      #catalogo-digital-codel {
+        padding: 50px 12px;
+      }
+
+      #catalogo-digital-codel .catalog-frame {
+        padding: 12px;
+        border-radius: 15px;
+      }
+
+      #catalogo-digital-codel .catalog-viewer {
+        min-height: 300px;
+        padding: 18px 39px;
+      }
+
+      #catalogo-digital-codel .catalog-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+      }
+
+      #catalogo-digital-codel .catalog-prev {
+        left: 4px;
+      }
+
+      #catalogo-digital-codel .catalog-next {
+        right: 4px;
+      }
+
+      #catalogo-digital-codel .catalog-controls {
+        gap: 8px;
+      }
+
+      #catalogo-digital-codel .catalog-btn {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <div id="global-header"></div>
+
+  <main id="contenido-principal">
+
+    <section id="catalogo-digital-codel" class="codel-catalog">
+      <div class="catalog-container">
+
+        <span class="catalog-eyebrow">
+          CODEL · Catálogo 2026
+        </span>
+
+        <h1>
+          Descubre nuestro
+          <span>catálogo digital</span>
+        </h1>
+
+        <p class="catalog-description">
+          Explora nuestros electrodomésticos y productos para tu hogar.
+          Encuentra cocinas, refrigeradoras, lavadoras, televisores
+          y mucho más en nuestro catálogo interactivo.
+        </p>
+
+        <div class="catalog-frame">
+
+          <div class="catalog-toolbar">
+            <div class="catalog-brand">
+              <span class="catalog-brand-icon">📖</span>
+              <span>CODEL · Todo para tu hogar</span>
+            </div>
+
+            <span class="catalog-counter" id="codelPageCounter">
+              Página 1 de 80
+            </span>
+          </div>
+
+          <div
+            class="catalog-viewer"
+            id="codelCatalogViewer"
+            tabindex="0"
+            aria-label="Visor del catálogo CODEL"
+          >
+
+            <button
+              class="catalog-arrow catalog-prev"
+              id="codelPrevPage"
+              type="button"
+              aria-label="Página anterior"
+              disabled
+            >
+              &#8249;
+            </button>
+
+            <span
+              class="catalog-loading"
+              id="codelCatalogLoading"
+              role="status"
+            >
+              Cargando catálogo...
+            </span>
+
+            <canvas
+              id="codelCatalogCanvas"
+              class="catalog-page"
+              role="img"
+              aria-label="Página del catálogo digital CODEL"
+              style="display:none"
+            ></canvas>
+
+            <button
+              class="catalog-arrow catalog-next"
+              id="codelNextPage"
+              type="button"
+              aria-label="Página siguiente"
+            >
+              &#8250;
+            </button>
+
+          </div>
+
+          <div class="catalog-controls">
+
+            <button
+              class="catalog-btn"
+              id="codelFullscreen"
+              type="button"
+            >
+              ⛶ Pantalla completa
+            </button>
+
+            <a
+              class="catalog-btn primary"
+              id="codelDownloadPdf"
+              href="assets/catalogo-codel-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ↗ Abrir PDF
+            </a>
+
+            <a
+              class="catalog-btn whatsapp"
+              href="https://wa.me/50578728585?text=Hola%2C%20quiero%20consultar%20sobre%20un%20producto%20del%20cat%C3%A1logo%20CODEL%202026"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultar por WhatsApp
+            </a>
+
+          </div>
+
+          <p class="catalog-note">
+            Usa las flechas para pasar las páginas.
+            También puedes utilizar las flechas izquierda y derecha
+            del teclado cuando el catálogo esté seleccionado.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER GLOBAL -->
+  <div id="global-footer"></div>
+
+  <!-- SCRIPTS GLOBALES -->
+  <script src="assets/js/shared-layout.js" defer></script>
+  <script src="assets/js/cookie-consent.js" defer></script>
+
+  <!-- VISOR DEL CATÁLOGO -->
+  <script>
+    (function () {
+      const root = document.getElementById(
+        "catalogo-digital-codel"
+      );
+
+      if (!root || root.dataset.initialized) return;
+
+      root.dataset.initialized = "true";
+
+      const pdfUrl = "assets/catalogo-codel-2026.pdf";
+
+      const canvas = root.querySelector(
+        "#codelCatalogCanvas"
+      );
+
+      const context = canvas.getContext("2d");
+
+      const loading = root.querySelector(
+        "#codelCatalogLoading"
+      );
+
+      const counter = root.querySelector(
+        "#codelPageCounter"
+      );
+
+      const prev = root.querySelector(
+        "#codelPrevPage"
+      );
+
+      const next = root.querySelector(
+        "#codelNextPage"
+      );
+
+      const viewer = root.querySelector(
+        "#codelCatalogViewer"
+      );
+
+      const fullscreen = root.querySelector(
+        "#codelFullscreen"
+      );
+
+      const download = root.querySelector(
+        "#codelDownloadPdf"
+      );
+
+      download.href = pdfUrl;
+
+      let pdfDocument = null;
+      let currentPage = 1;
+      let rendering = false;
+      let pendingPage = null;
+
+      function updateControls() {
+        const total = pdfDocument
+          ? pdfDocument.numPages
+          : 80;
+
+        counter.textContent =
+          "Página " + currentPage + " de " + total;
+
+        prev.disabled =
+          !pdfDocument || currentPage <= 1;
+
+        next.disabled =
+          !pdfDocument || currentPage >= total;
+      }
+
+      async function renderPage(pageNumber) {
+        if (!pdfDocument) return;
+
+        if (rendering) {
+          pendingPage = pageNumber;
+          return;
+        }
+
+        rendering = true;
+        canvas.classList.add("changing");
+
+        try {
+          const page = await pdfDocument.getPage(
+            pageNumber
+          );
+
+          const availableWidth = Math.max(
+            180,
+            viewer.clientWidth - 120
+          );
+
+          const baseViewport = page.getViewport({
+            scale: 1
+          });
+
+          const scale = Math.min(
+            2,
+            availableWidth / baseViewport.width,
+            560 / baseViewport.height
+          );
+
+          const viewport = page.getViewport({
+            scale: Math.max(0.5, scale)
+          });
+
+          const pixelRatio = Math.min(
+            window.devicePixelRatio || 1,
+            2
+          );
+
+          canvas.width = Math.round(
+            viewport.width * pixelRatio
+          );
+
+          canvas.height = Math.round(
+            viewport.height * pixelRatio
+          );
+
+          canvas.style.width =
+            viewport.width + "px";
+
+          canvas.style.height =
+            viewport.height + "px";
+
+          await page.render({
+            canvasContext: context,
+            viewport: viewport,
+            transform: pixelRatio !== 1
+              ? [pixelRatio, 0, 0, pixelRatio, 0, 0]
+              : null
+          }).promise;
+
+          currentPage = pageNumber;
+
+          canvas.style.display = "block";
+          loading.style.display = "none";
+
+          updateControls();
+
+        } catch (error) {
+          loading.textContent =
+            "No se pudo mostrar el catálogo. " +
+            "Comprueba la ruta del archivo PDF.";
+
+          loading.style.display = "block";
+
+          console.error("CODEL PDF:", error);
+
+        } finally {
+          canvas.classList.remove("changing");
+          rendering = false;
+
+          if (pendingPage !== null) {
+            const nextPage = pendingPage;
+            pendingPage = null;
+
+            if (nextPage !== currentPage) {
+              renderPage(nextPage);
+            }
+          }
+        }
+      }
+
+      function goToPage(number) {
+        if (!pdfDocument) return;
+
+        const target = Math.max(
+          1,
+          Math.min(number, pdfDocument.numPages)
+        );
+
+        if (target !== currentPage) {
+          renderPage(target);
+        }
+      }
+
+      prev.addEventListener("click", function () {
+        goToPage(currentPage - 1);
+      });
+
+      next.addEventListener("click", function () {
+        goToPage(currentPage + 1);
+      });
+
+      fullscreen.addEventListener("click", function () {
+        if (!document.fullscreenElement) {
+          if (viewer.requestFullscreen) {
+            viewer.requestFullscreen();
+          }
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      });
+
+      viewer.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goToPage(currentPage + 1);
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goToPage(currentPage - 1);
+        }
+      });
+
+      function initializePdf() {
+        const pdfjsLib = window.pdfjsLib;
+
+        if (!pdfjsLib) {
+          loading.textContent =
+            "No se pudo cargar el visor PDF.";
+          return;
+        }
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+        pdfjsLib.getDocument(pdfUrl).promise
+          .then(function (pdf) {
+            pdfDocument = pdf;
+            updateControls();
+            renderPage(1);
+          })
+          .catch(function (error) {
+            loading.textContent =
+              "No se encontró el PDF. Revisa la dirección del archivo.";
+
+            console.error(error);
+          });
+      }
+
+      if (window.pdfjsLib) {
+        initializePdf();
+      } else {
+        const script = document.createElement("script");
+
+        script.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+
+        script.onload = initializePdf;
+
+        script.onerror = function () {
+          loading.textContent =
+            "Error al cargar la biblioteca del visor.";
+        };
+
+        document.head.appendChild(script);
+      }
+    })();
+  </script>
+
+  <!-- MARCAR CATÁLOGO DIGITAL COMO PÁGINA ACTIVA -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const header = document.getElementById("global-header");
+
+      if (!header) return;
+
+      const observer = new MutationObserver(function () {
+        const link = header.querySelector(
+          'a[href="CatalogoDigital.html"]'
+        );
+
+        if (!link) return;
+
+        header.querySelectorAll(
+          ".header__link.active"
+        ).forEach(function (element) {
+          element.classList.remove("active");
+          element.removeAttribute("aria-current");
+        });
+
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+
+        observer.disconnect();
+      });
+
+      observer.observe(header, {
+        childList: true,
+        subtree: true
+      });
+    });
+  </script>
+
+<div id="global-footer"></div>
+
+<a class="codel-whatsapp-float" href="https://wa.me/50578728585?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20CODEL" target="\_blank" rel="noopener noreferrer" aria-label="Escribir a CODEL por WhatsApp" title="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+
+
+
+<script src="assets/js/codel-animations.js"></script>
+
+
+<!-- Cargar header y footer globales -->
+<script src="assets/js/shared-layout.js" defer></script>
+
+
+</body>
+
+</body>
+</html>

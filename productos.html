@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Catálogo de productos CODEL. Electrodomésticos, tecnología y productos para el hogar."
+    >
+
+    <title>CODEL | Productos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+  rel="icon"
+  type="assets\isotipo.svg"
+  href="assets\isotipo.svg"
+>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ======================================================
+         HEADER
+         ====================================================== -->
+
+ <div id="global-header"></div>
+
+
+    <!-- ======================================================
+         HERO DE PRODUCTOS
+         ====================================================== -->
+
+    <main>
+
+        <section class="products-hero">
+    <div class="products-hero__content">
+        <h1 class="products-hero__title">
+            Nuestros productos
+        </h1>
+    </div>
+</section>
+
+
+        <!-- ======================================================
+             CATÁLOGO
+             ====================================================== -->
+
+        <section class="products-catalog">
+
+            <div class="products-catalog__container">
+
+                <div class="products-catalog__heading reveal">
+
+                    <div>
+
+                        <p class="products-catalog__eyebrow">
+                            Catálogo CODEL
+                        </p>
+
+                        <h2>
+                            Productos disponibles
+                        </h2>
+
+                    </div>
+
+                    <div class="products-search">
+
+                        <label
+                            for="buscarProducto"
+                            class="sr-only"
+                        >
+                            Buscar producto
+                        </label>
+
+                        <input
+                            type="search"
+                            id="buscarProducto"
+                            placeholder="Buscar por producto, marca o modelo..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Filtros generados desde productos.js -->
+
+                <div
+                    class="products-filters reveal"
+                    id="productosFiltros"
+                    aria-label="Filtros de productos"
+                ></div>
+
+
+                <!-- Mensaje mientras carga -->
+
+                <div
+                    class="products-loading"
+                    id="productosLoading"
+                >
+                    Cargando productos...
+                </div>
+
+
+                <!-- Aquí se generan las cards -->
+
+                <div
+                    class="products-grid"
+                    id="productosContainer"
+                ></div>
+
+
+                <!-- Mensaje sin resultados -->
+
+                <div
+                    class="products-empty"
+                    id="productosVacios"
+                    hidden
+                >
+                    No encontramos productos con ese criterio.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================================
+         MODAL DE DETALLE
+         ====================================================== -->
+
+    <div
+        class="product-modal"
+        id="productoModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="product-modal__overlay"
+            data-cerrar-modal
+        ></div>
+
+        <div
+            class="product-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="productoModalTitulo"
+        >
+
+            <button
+                type="button"
+                class="product-modal__close"
+                data-cerrar-modal
+                aria-label="Cerrar detalle del producto"
+            >
+                ×
+            </button>
+
+            <div id="productoModalContenido"></div>
+
+        </div>
+
+    </div>
+
+
+ <div id="global-footer"></div>
+
+<a class="codel-whatsapp-float" href="https://wa.me/50578728585?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20CODEL" target="\_blank" rel="noopener noreferrer" aria-label="Escribir a CODEL por WhatsApp" title="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+
+
+
+<script src="assets/js/codel-animations.js"></script>
+
+
+<!-- Cargar header y footer globales -->
+<script src="assets/js/shared-layout.js" defer></script>
+
+    <script src="assets/js/productos.js"></script>
+
+    <script src="assets/js/codel-animations.js"></script>
+</body>
+
+
+</html>
